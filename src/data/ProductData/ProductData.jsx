@@ -24,7 +24,7 @@ export const ProductData = [
     },
     {
         id: 2,
-        type:"Women",
+        type:"Bag",
         title:"Hershel Supply",
         price:"$35.31",
         url:product2
@@ -94,7 +94,7 @@ export const ProductData = [
     },
     {
         id: 12,
-        type:"Men",
+        type:"Bag",
         title:"Herschel supply",
         price:"$63.15",
         url:product12

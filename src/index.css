@@ -1,7 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.hero-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(circle at center, black 0%, black 35%, transparent 78%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 0%,
+    black 35%,
+    transparent 78%
+  );
+}
+
+.hero-noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.hero-parallax-orb {
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.hero-parallax-orb-deep {
+  width: 76vw;
+  height: 76vw;
+  max-width: 980px;
+  max-height: 980px;
+  background: radial-gradient(
+    circle at center,
+    rgba(113, 127, 224, 0.28) 0%,
+    rgba(123, 85, 233, 0.18) 35%,
+    transparent 72%
+  );
+}
+
+.hero-parallax-orb-one {
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(113, 127, 224, 0.22) 35%,
+    transparent 72%
+  );
+  animation: hero-float-one 18s ease-in-out infinite;
+}
+
+.hero-parallax-orb-two {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(
+    circle at center,
+    rgba(113, 127, 224, 0.24) 0%,
+    rgba(255, 255, 255, 0.1) 38%,
+    transparent 72%
+  );
+  animation: hero-float-two 16s ease-in-out infinite;
+}
+
+.hero-scroll-indicator {
+  animation: hero-scroll-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-float-one {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate3d(34px, -22px, 0) scale(1.06);
+  }
+
+  66% {
+    transform: translate3d(-18px, 18px, 0) scale(0.92);
+  }
+}
+
+@keyframes hero-float-two {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-28px, -16px, 0) scale(1.08);
+  }
+}
+
+@keyframes hero-scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-grid-pattern {
+    background-size: 38px 38px;
+  }
+
+  .hero-parallax-orb-deep {
+    width: 110vw;
+    height: 110vw;
+  }
+
+  .hero-parallax-orb-one,
+  .hero-parallax-orb-two {
+    width: 150px;
+    height: 150px;
+    filter: blur(48px);
+  }
+}
 
 .poppins-thin {
   font-family: "Poppins", sans-serif;
@@ -422,6 +546,53 @@ animation:slide-in-blurred-left 3s ease ;
   }
 }
 
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .tButton{
 animation: slide-in-blurred-bottom ease 3s
