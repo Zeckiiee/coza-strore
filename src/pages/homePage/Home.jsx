@@ -176,23 +176,7 @@ export default function Home() {
           <div className="space-y-5">
             <h1 className="text-[36px] poppins-bold">PRODUCT OVERVIEW</h1>
             <div className="flex flex-wrap gap-4 text-[15px] text-[#888888] poppins-regular">
-              {FILTER_LABELS.map((label) => {
-                const isActive = activeCategory === label;
-
-                return (
-                  <button
-                    key={label}
-                    onClick={() => setActiveCategory(label)}
-                    className={`border-b pb-1 transition ${
-                      isActive
-                        ? "border-[#717fe0] text-[#333333] poppins-medium"
-                        : "border-transparent hover:text-[#333333]"
-                    }`}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
+              
             </div>
           </div>
 
